@@ -9,17 +9,24 @@ public class Calculator {
         if(text.equals("")){
             return 0;
         }
-        else if(text.length()==1)
-        {
-            return Integer.parseInt(text);
-        }
         else
         {
-            return Integer.parseInt(numbers[0]) + Integer.parseInt(numbers[1]);
+          return sum(numbers);
         }
     }
 
+    private static int toInt(String number){
+        return Integer.parseInt(number);
+    }
 
-
+    private static int sum(String[] numbers)
+    {
+        int total = 0;
+        for(String number : numbers)
+        {
+                total += toInt(number);
+        }
+        return total;
+    }
 
 }
