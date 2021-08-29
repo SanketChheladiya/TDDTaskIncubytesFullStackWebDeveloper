@@ -11,29 +11,16 @@ public class Calculator {
         }
         else
         {
+            //String delimiter = ",";
 
-            String tmp = text.replaceAll("\\D", "");
-            if(!tmp.equals(""))
+            if(text.matches("//[;]\n"))
             {
-                char[] charsArray = tmp.toCharArray();
-                int sum1 = 0;
-                for (int i = 0; i < charsArray.length; i++) {
-
-                    sum1 = sum1 + Character.getNumericValue(charsArray[i]);
-                }
-                return sum1;
+                delimiter = Character.toString(text.charAt(2));
+                text = text.substring(4);
             }
-            else
-            {
-                String delimiter = ",";
-                if (text.matches("//(.*)\n(.*)")) {
-                    delimiter = Character.toString(text.charAt(2));
-                    text = text.substring(4);
-                }
 
-                String numList[] = splitNumbers(text, delimiter + "|\n");
-                return sum(numList);
-            }
+            String numList[] = splitNumbers(text, delimiter + "|\n");
+            return sum(numList);
         }
     }
 
@@ -48,25 +35,12 @@ public class Calculator {
     private static int sum(String[] numbers)
     {
         int total = 0;
-        String negString = "";
-
-        for(String number : numbers){
-            if(toInt(number) < 0){
-                if(negString.equals(""))
-                    negString = number;
-                else
-                    negString += ("," + number);
-            }
+        for(String number : numbers)
+        {
             if(toInt(number) < 1000)
                 total += toInt(number);
         }
-
-        if(!negString.equals("")){
-            throw new IllegalArgumentException("Negatives not allowed: " + negString);
-        }
-
         return total;
     }
-
 
 }

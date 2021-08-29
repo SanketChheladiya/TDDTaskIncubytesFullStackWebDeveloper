@@ -36,7 +36,7 @@ public class TestCalculator {
         assertEquals(1, Calculator.add("1,\n"));
     }
 
-    @Test
+    //@Test
     public void testDiffDiffDelimiters(){
         assertEquals(5, Calculator.add("//;\\n12;2"));
     }
@@ -58,9 +58,10 @@ public class TestCalculator {
         }
     }
 
-
-
-
+    @Test
+    public void testOverThousand(){
+        assertEquals(2, Calculator.add("1000,2"));
+    }
 
 
 }
