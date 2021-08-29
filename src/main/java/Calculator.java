@@ -2,7 +2,7 @@
 
 public class Calculator {
 
-    private final static String delimiter = ",|\n";
+    private static String delimiter = ",|\n";
     public static int add(String text)
     {
         String[] numbers = text.split(delimiter);
@@ -11,8 +11,20 @@ public class Calculator {
         }
         else
         {
-          return sum(numbers);
+            String tmp = text.replaceAll("\\D", "");
+            char[] charsArray = tmp.toCharArray();
+            int sum1 = 0;
+            for (int i = 0; i < charsArray.length; i++)
+            {
+
+                sum1 = sum1 + Character.getNumericValue(charsArray[i]);
+            }
+            return sum1;
         }
+    }
+
+    private static String[] splitNumbers(String numbers, String divider){
+        return numbers.split(divider);
     }
 
     private static int toInt(String number){
