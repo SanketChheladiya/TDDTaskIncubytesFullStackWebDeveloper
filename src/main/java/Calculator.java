@@ -2,7 +2,7 @@
 
 public class Calculator {
 
-    private final static String delimiter = ",";
+    private final static String delimiter = ",|\n";
     public static int add(String text)
     {
         String[] numbers = text.split(delimiter);

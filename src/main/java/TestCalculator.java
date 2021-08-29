@@ -26,4 +26,17 @@ public class TestCalculator {
         assertEquals(18, Calculator.add("1,2,3,5,7"));
     }
 
+    @Test
+    public void testDiffDelimiter(){
+        assertEquals(6, Calculator.add("1\n2,3"));
+    }
+
+    @Test
+    public void testDiffdDelimiter(){
+        assertEquals(1, Calculator.add("1,\n"));
+    }
+
+
+
+
 }
