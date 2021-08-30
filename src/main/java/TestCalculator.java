@@ -36,9 +36,9 @@ public class TestCalculator {
         assertEquals(1, Calculator.add("1,\n"));
     }
 
-    //@Test
+    @Test
     public void testDiffDiffDelimiters(){
-        assertEquals(5, Calculator.add("//;\\n12;2"));
+        assertEquals(14, Calculator.add("//;\n12;2"));
     }
 
     @Test
